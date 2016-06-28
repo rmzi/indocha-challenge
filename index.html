@@ -31,7 +31,7 @@ https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></
   <body>
     <div class="container-fluid">
     <div class="african-image text-center">
-      <img id="african" src="http://ih0.redbubble.net/image.6321863.3729/flat,1000x1000,075,f.jpg"/>
+      <img id="african" src=""/>
     </div>
         <div class="text-center">
           <a id="Choice1" href="" class="btn btn-default">Ethiopian</a>
@@ -42,15 +42,15 @@ https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></
 
     <script type="text/javascript">
       var next = function() {
-        var gAPIKey = "";
+        var gAPIKey = "AIzaSyDPptJO_u0qPQaRjKFwYr6WzAUOfY2taA0";
 
         // Arrays used to build queries
-        var countries = ["Ethiopian", "Nigerian", "Egyptian", "Congolese", "South African"];
-        var entities = ["man", "woman", "child", "adult", "girl", "boy"];
+        var countries = ["Ethiopian", "Nigerian", "Egyptian", "Congolese", "SouthAfrican"];
+        var entities = ["man", "woman"];
 
         var query = _.sample(countries) + "+" +  _.sample(entities);
 
-        var url = "https://www.googleapis.com/customsearch/v1?q=" + query + "&cx=008903352757159262803:p7rebmmf6ws&imgType=face&start=" + Math.floor(Math.random() * 100) + "&key=" + gAPIKey;
+        var url = "https://www.googleapis.com/customsearch/v1?q=" + query + "&cx=008903352757159262803:p7rebmmf6ws&imgType=face&start=" + Math.floor(Math.random() * 100 + 1) + "&key=" + gAPIKey;
 
         console.log(url)
 
@@ -73,6 +73,7 @@ https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></
 
       $("#Flag").click(function() {
           alert("COMING SOON!!!");
+
       });
 
       $(function() {
