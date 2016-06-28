@@ -2,7 +2,9 @@
   <head>
     <title>Indocha Challenge</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="
+https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -29,7 +31,7 @@
   <body>
     <div class="container-fluid">
     <div class="african-image text-center">
-      <img src="http://ih0.redbubble.net/image.6321863.3729/flat,1000x1000,075,f.jpg"/>
+      <img id="african" src="http://ih0.redbubble.net/image.6321863.3729/flat,1000x1000,075,f.jpg"/>
     </div>
         <div class="text-center">
           <a id="Choice1" href="" class="btn btn-default">Ethiopian</a>
@@ -39,26 +41,42 @@
       </div>
 
     <script type="text/javascript">
+      var next = function() {
+        var gAPIKey = "";
 
-      $(function() {
-        var gAPIKey = ""
-        var url = "https://www.googleapis.com/customsearch/v1?q=ethiopian+man&cx=008903352757159262803%3Ap7rebmmf6ws&key=" + gAPIKey;
+        // Arrays used to build queries
+        var countries = ["Ethiopian", "Nigerian", "Egyptian", "Congolese", "South African"];
+        var entities = ["man", "woman", "child", "adult", "girl", "boy"];
+
+        var query = _.sample(countries) + "+" +  _.sample(entities);
+
+        var url = "https://www.googleapis.com/customsearch/v1?q=" + query + "&cx=008903352757159262803:p7rebmmf6ws&imgType=face&start=" + Math.floor(Math.random() * 100) + "&key=" + gAPIKey;
+
+        console.log(url)
 
         $.getJSON(url, function(data){
-          console.log(data);
+
+          $('#african').attr('src', data.items[0].pagemap.cse_image[0].src)
+
         })
-      });
+      }
 
       $("#Choice1").click(function() {
           alert("RIGHT!!!");
+          next();
       });
 
       $("#Choice2").click(function() {
           alert("WRONG!!!");
+          next();
       });
 
       $("#Flag").click(function() {
           alert("COMING SOON!!!");
+      });
+
+      $(function() {
+       next();
       });
 
     </script>
