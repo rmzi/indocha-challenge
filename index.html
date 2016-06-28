@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Indocha Challenge</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  </head>
+
+  <body>
+    <img src="http://ih0.redbubble.net/image.6321863.3729/flat,1000x1000,075,f.jpg"/>
+    <button>Ethiopian</button>
+    <button>Nigerian</button>
+
+    <script type="text/javascript">
+
+      // Loading scripts from Google
+      // See https://developers.google.com/loader/#auto-loading
+      google.load("search", "1");
+
+      // DEBUG
+      console.log(google);
+
+      // Image Search
+      var img_searcher = new google.search.ImageSearch();
+      img_searcher.execute('Carmen Electra');
+
+
+    </script>
+
+  </body>
+</html>
