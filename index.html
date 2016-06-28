@@ -6,23 +6,26 @@
   </head>
 
   <body>
-    <img src="http://ih0.redbubble.net/image.6321863.3729/flat,1000x1000,075,f.jpg"/>
-    <button>Ethiopian</button>
-    <button>Nigerian</button>
+    <div id="content">
+      <img src="http://ih0.redbubble.net/image.6321863.3729/flat,1000x1000,075,f.jpg"/>
+    </div>
+
+    <br>
+    <div id="chooser">
+      <button>Ethiopian</button>
+      <button>Nigerian</button>
+    </div>
 
     <script type="text/javascript">
 
-      // Loading scripts from Google
-      // See https://developers.google.com/loader/#auto-loading
-      google.load("search", "1");
+    $(function() {
+      var gAPIKey = ""
+      var url = "https://www.googleapis.com/customsearch/v1?q=ethiopian+man&cx=008903352757159262803%3Ap7rebmmf6ws&key=" + gAPIKey;
 
-      // DEBUG
-      console.log(google);
-
-      // Image Search
-      var img_searcher = new google.search.ImageSearch();
-      img_searcher.execute('Carmen Electra');
-
+      $.getJSON(url, function(data){
+        console.log(data);
+      })
+    });
 
     </script>
 
