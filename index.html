@@ -3,29 +3,63 @@
     <title>Indocha Challenge</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
   </head>
+  <style>
+  .african-image {
+    width: 700px;
+    margin: auto;
+  }
+
+  a{
+    margin: 10px;
+    width: 300px;
+  }
+
+</style>
 
   <body>
-    <div id="content">
+    <div class="container-fluid">
+    <div class="african-image text-center">
       <img src="http://ih0.redbubble.net/image.6321863.3729/flat,1000x1000,075,f.jpg"/>
     </div>
-
-    <br>
-    <div id="chooser">
-      <button>Ethiopian</button>
-      <button>Nigerian</button>
-    </div>
+        <div class="text-center">
+          <a id="Choice1" href="" class="btn btn-default">Ethiopian</a>
+          <a id="Choice2" href="" class="btn btn-default">Nigerian</a>
+          <a id="Flag" href="" class="btn btn-default">Flag</a>
+        </div>
+      </div>
 
     <script type="text/javascript">
 
-    $(function() {
-      var gAPIKey = ""
-      var url = "https://www.googleapis.com/customsearch/v1?q=ethiopian+man&cx=008903352757159262803%3Ap7rebmmf6ws&key=" + gAPIKey;
+      $(function() {
+        var gAPIKey = ""
+        var url = "https://www.googleapis.com/customsearch/v1?q=ethiopian+man&cx=008903352757159262803%3Ap7rebmmf6ws&key=" + gAPIKey;
 
-      $.getJSON(url, function(data){
-        console.log(data);
-      })
-    });
+        $.getJSON(url, function(data){
+          console.log(data);
+        })
+      }
+
+      $("#Choice1").click(function() {
+          alert("RIGHT!!!");
+      });
+
+      $("#Choice2").click(function() {
+          alert("WRONG!!!");
+      });
+
+      $("#Flag").click(function() {
+          alert("COMING SOON!!!");
+      });
 
     </script>
 
